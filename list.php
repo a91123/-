@@ -1,6 +1,5 @@
 <?php
-$page_title = '資料列表';
-// 這邊會用來判定點到哪個表單 使該表單出現active樣式 (在navbar上顯示)
+
 $page_name = 'list';
 require __DIR__ . '/parts/connect.php';
 ?>
@@ -47,14 +46,18 @@ require __DIR__ . '/parts/connect.php';
     <script>
         const tbody = document.querySelector('tbody')
         const pageItemTpl = (obj) => {
+            // 設置一個 pageItemTpl 函數 顯示按鈕 
             return `<li class="page-item ${obj.active}">
                     <a class="page-link" href="#${obj.page}">${obj.page}</a>
                     </li>`
         }
         let pageData;
         const tableRowTpl = (obj) => {
+            // 設置一個tableRowTpl 顯示 表格的內容
             return `
+             
                     <tr>
+                    
                     <td>${obj.sid}</td>
                     <td>${obj.name}</td>
                     <td>${obj.price}</td>
@@ -70,16 +73,20 @@ require __DIR__ . '/parts/connect.php';
             .then(obj => {
                     console.log(obj);
                     pageData = obj;
+
                     let str = '';
                     for (let i of obj.rows) {
+                        // 用for迴圈 把fetch 接收到的rows 資料 遍歷出來 放入tableRowTpl中
                         str += tableRowTpl(i);
                     }
                     tbody.innerHTML = str;
-
+                    // 把str 塞到 tbody裡
                     str = '';
                     for (let i = obj.page - 3; i <= obj.page + 3; i++) {
+                        // 用for迴圈 把 fetch接收到的page資料 資料 遍歷出來 放入pageItemTpl中
                         if (i < 1) continue;
                         if (i > obj.totalPages) continue;
+                        // 設置一個o 物件 把 page 塞進去  這邊的功能是用來判斷是否 進入active狀態
                         const o = {
                             page: i,
                             active: ''
@@ -90,7 +97,7 @@ require __DIR__ . '/parts/connect.php';
                         str += pageItemTpl(o);
                     }
                     document.querySelector('.pagination').innerHTML = str;
-
+                    // 把 str 塞到 class pagination裡
 
                 }
 
