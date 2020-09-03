@@ -2,7 +2,7 @@
 
 require __DIR__ . '/parts/connect.php';
 
-$perPage = 5; // 每頁有幾筆資料
+$perPage = 3; // 每頁有幾筆資料
 // 如果用戶有輸入就跳到用戶輸入的頁數 沒有輸入 就跳到第一頁
 $output = [
     'perPage' => $perPage,
