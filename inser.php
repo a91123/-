@@ -1,6 +1,7 @@
 <?php
 $page_title = '新增資料';
 $page_name = 'inser';
+require __DIR__ . '/admin.php';
 // 與資料庫連線
 require __DIR__ . '/parts/connect.php';
 ?>

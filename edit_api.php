@@ -1,6 +1,7 @@
 <?php
 
 require __DIR__ . '/parts/connect.php';
+require __DIR__ . '/admin.php';
 
 // 收到前端網頁的input後 給一個回應
 $output = [
@@ -9,7 +10,7 @@ $output = [
     'code' => 0,
     'error' => ''
 ];
-
+// 如果沒有抓到 sid就會回報沒有sid
 if (empty($_POST['sid'])) {
     $output['code'] = 405;
     $output['error'] = '沒有 sid';

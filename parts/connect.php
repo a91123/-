@@ -18,3 +18,6 @@ $pdo_options = [
 ];
 //  dsn=主機 資料庫名稱 user padd = 帳號密碼  pdo_options =你的設定
 $pdo = new PDO($dsn, $db_user, $db_pass, $pdo_options);
+if (!isset($_SESSION)) {
+    session_start();
+}

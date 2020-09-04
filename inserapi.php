@@ -1,6 +1,7 @@
 <?php
 
 require __DIR__ . '/parts/connect.php';
+require __DIR__ . '/admin.php';
 
 // 收到前端網頁的input後 給一個回應
 $output = [

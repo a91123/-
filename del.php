@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . '/parts/connect.php';
+require __DIR__ . '/admin.php';
 // $referer 代表你從哪裡連過來的(上一頁)      (這是語法) 如過有設定'HTTP_REFERER' 就返回上一頁 沒有就回到list列表
 $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'list.php';
 // 如果沒給 刪除的sid 就返回上一頁
